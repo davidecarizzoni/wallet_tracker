@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_tracker/widget/wallet_card.dart';
+import 'package:wallet_tracker/widget/wallet_transaction.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.title});
@@ -22,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(238, 241, 242, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(238, 241, 242, 1),
         title: Text(
@@ -41,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 220,
@@ -51,6 +53,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: const WalletCard(),
                   ),
                 ),
+              ),
+              const SizedBox(height: 15),
+              const Text(
+                "Last transactions",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black45,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const WalletTransaction(
+                amount: 10,
+                currency: '€',
+              ),
+              const WalletTransaction(
+                amount: 20,
+                currency: '€',
+              ),
+              const WalletTransaction(
+                amount: 12,
+                currency: '€',
+              ),
+              const WalletTransaction(
+                amount: -20,
+                currency: '€',
+              ),
+              const WalletTransaction(
+                amount: -12,
+                currency: '€',
               )
             ],
           ),
